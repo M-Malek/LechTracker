@@ -1,0 +1,62 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>Lech Poznań Stats</title>
+    </header>
+    <body>
+            <h1>Lech Poznań Statistic</h1>
+            <div style="
+                        position: absolute;
+                        display: inline;
+                        width: 1000px;
+                        left: 10%;
+                        right: 60%;
+                        margin: 0, 0, 0, 0;
+                        ">
+            <table>
+                <tr>
+                    <th>Drużyny</th>
+                    <th>Wynik meczu</th>
+                    <th>Data spotkania</th>
+                </tr>
+                {% for pos in match%}
+                    <tr>
+                        <th>{{pos['opponent_1']}} vs {{pos['opponent_2']}}</th>
+                        <th>{{pos['score']}}</th>
+                        <th>{{pos['date']}}, {{pos['hour']}}</th>
+                    </tr>
+                {%- endfor %}
+            </table>
+            </div>
+            <div style="position: absolute;
+                        display: inline;
+                        width: 1000px;
+                        right: 0%;
+                        left: 60%;
+                        margin: 0, 0, 0, 0;
+                        ">
+            <table>
+                <tr>
+                    <th>Drużyna</th>
+                    <th>Ilość punktów</th>
+                    <th>Rozegrane mecze</th>
+                </tr>
+                {% for pos in table_rank %}
+                    <tr>
+                        <th>{{ table_rank[pos]['name'] }}</th>
+                        <th>{{ table_rank[pos]['points'] }}</th>
+                        <th>{{ table_rank[pos]['matches'] }}</th>
+                    </tr>
+                {%- endfor %}
+            </table>
+            </div>
+    <footer style="
+                    text-align: center;
+                    position: fixed;
+                    bottom: 0%;
+                    left: 50%;
+                    ">
+        Created by <a href="https://github.com/M-Malek">Michal Malek</a> | Poznań 2022 | Date of compilation: {{ hour }}
+    </footer>
+    </body>
+</html>
