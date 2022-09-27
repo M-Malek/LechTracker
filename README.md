@@ -23,6 +23,8 @@ API allows to get raw `.json` file with data collected for a web API version
 - API based on online web services, sometimes, when meeting's data were not provided API can return a blank row without 
 data,
 - WEB page appearance has been customized only to 15,6" laptop screen,
+- Production development, except for the consent of the website owners to share the data, required creating a production
+WSGI server,
 
 ### Data providers
 - Data on the current games came from the [Sportowe Fakty WP](https://sportowefakty.wp.pl) website. 
